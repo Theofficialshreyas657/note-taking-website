@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Auth Specific Styles */
+.auth-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.auth-tab-btn {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--dark);
+    transition: all 0.2s ease;
+}
+
+.auth-tab-btn.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+.auth-tab-btn:hover:not(.active) {
+    background-color: #f5f7fa;
+}
+
+.auth-form-container {
+    padding: 20px;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.form-error {
+    color: var(--danger);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+/* User Profile Dropdown */
+.user-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 100;
+    display: none;
+}
+
+.user-dropdown.active {
+    display: block;
+}
+
+.user-dropdown-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.user-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.user-dropdown-item:hover {
+    background-color: #f5f7fa;
+}
+
+.logout-btn {
+    color: var(--danger);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Notes App</h1>
+            <p>Organize your thoughts with blocks and notes</p>
+        </header>
+
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" data-tab="login">Login</button>
+                <button class="auth-tab-btn" data-tab="signup">Sign Up</button>
+            </div>
+
+            <div class="auth-form-container">
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-error" id="login-error"></div>
+                    <button type="submit" class="btn-primary btn-block">Login</button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Choose a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="form-error" id="signup-error"></div>
+                    <button type="submit" class="btn-primary btn-block">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

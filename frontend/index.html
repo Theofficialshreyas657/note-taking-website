@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Notes App</h1>
+            <p>Organize your thoughts with blocks and notes</p>
+        </header>
+        <button id="logout-btn">Logout</button>
+        <div id="blocks-container" class="blocks-container">
+            <!-- Blocks will be dynamically added here -->
+        </div>
+
+        <div class="add-block-container">
+            <button id="add-block-btn" class="btn-primary">Add New Block</button>
+        </div>
+    </div>
+
+    <!-- Modal for adding/editing blocks -->
+    <div id="block-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="block-modal-title">Add New Block</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="block-title">Block Title</label>
+                    <input type="text" id="block-title" placeholder="Enter block title">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary block-modal-cancel">Cancel</button>
+                <button class="btn-primary" id="save-block-btn">Save Block</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding/editing notes -->
+    <div id="note-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="note-modal-title">Add New Note</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="note-type">Note Type</label>
+                    <select id="note-type">
+                        <option value="text">Text</option>
+                        <option value="image">Image</option>
+                        <option value="checkbox">Checkbox</option>
+                    </select>
+                </div>
+                
+                <div id="text-note-fields" class="note-type-fields">
+                    <div class="form-group">
+                        <label for="text-content">Content</label>
+                        <textarea id="text-content" rows="4" placeholder="Enter your note"></textarea>
+                    </div>
+                </div>
+                
+                <div id="image-note-fields" class="note-type-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="image-url">Image URL</label>
+                        <input type="text" id="image-url" placeholder="Enter image URL">
+                    </div>
+                </div>
+                
+                <div id="checkbox-note-fields" class="note-type-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="checkbox-label">Checkbox Label</label>
+                        <input type="text" id="checkbox-label" placeholder="Enter checkbox label">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkbox-checked">
+                            <input type="checkbox" id="checkbox-checked"> Initially Checked
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary note-modal-cancel">Cancel</button>
+                <button class="btn-primary" id="save-note-btn">Save Note</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
